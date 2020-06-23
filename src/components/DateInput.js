@@ -23,7 +23,7 @@ class DateInput extends Component {
                 <label className="col-form-label" htmlFor="inputLarge">Enter a date:</label>
                 <div className="row">                
                     <div className="form-group col-md-8">                
-                        <input type="text" ref={this.searchRef} id="fecha" className="form-control form-control-lg" placeholder="YYYY-MM-DD"/>
+                        <input type="date" ref={this.searchRef} id="fecha" className="form-control form-control-lg" placeholder="YYYY-MM-DD"/>
                                     
                     </div>
                     <div className="form-group col-md-2">
