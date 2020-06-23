@@ -38,6 +38,7 @@ class App extends Component {
       .then(response => response.json())           
       .then(data => {
         this.setState({ date: data.rndDate })
+        document.getElementById("fecha").value = data.rndDate
         this.getPhoto(data.rndDate);        
       });
   };
@@ -46,7 +47,7 @@ class App extends Component {
     return (
       <div className="apod container">
         <div className="jumbotron">
-          <h1 className="text-white text-center">NASA's Astronomy Picture of the Day</h1>
+          <h1 className="text-white text-center">NASA's Astronomy Picture of the Day</h1>          
           <DateInput dateSearch={this.dateSearch}/>
           <Photo photo={this.state.photo}/>
         </div>
