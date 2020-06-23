@@ -14,7 +14,7 @@ class DateInput extends Component {
 
     changeRndDate = (e) => {
         e.preventDefault();  
-        this.props.dateSearch("rnd");
+        this.props.dateSearch("rnd");        
     };
 
     render() {
@@ -29,11 +29,11 @@ class DateInput extends Component {
                     <div className="form-group col-md-2">
                         <input type="submit" className="btn btn-lg btn-primary btn-block" value="Search"/>
                     </div>
-                    
+                    <div className="form-group col-md-2" >
+                        <input type="submit" onClick={this.changeRndDate} className="btn btn-lg btn-info btn-block" value="Random"/>
+                    </div>                    
                 </div>       
-                <div className="form-group col-md-2" >
-                    <input type="submit" onClick={this.changeRndDate} className="btn btn-lg btn-info btn-block" value="Random"/>
-                </div>
+                
             </form>
             
                

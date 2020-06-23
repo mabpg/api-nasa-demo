@@ -7,19 +7,16 @@ import "bootswatch/dist/solar/bootstrap.min.css";
 class App extends Component {
   state = {
     date: "",
-    photo: "",
-    rndDate: ""
+    photo: ""   
   };
 
-  dateSearch = (termino) => {
-    //console.log("termino recibido: " + termino);
+  dateSearch = (termino) => {   
     if(termino!=="rnd"){ //invocado desde el submit search
       this.setState({ date: termino });
       this.getPhoto(termino);
     }else {
       //invocado desde el submit random
-      this.getRndPhoto();
-      console.log("Invoke from Random " + this.state.rndDate)
+      this.getRndPhoto();     
     } 
   }
 
@@ -30,6 +27,7 @@ class App extends Component {
   }
 
   getPhoto = date => {
+    //console.log(date);
     fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=DEMO_KEY`)
       .then(response => response.json())
       .then(photoData => this.setState({ photo: photoData }));
@@ -37,8 +35,11 @@ class App extends Component {
 
   getRndPhoto = e => {
     fetch('http://localhost:8001/randomdate')
-      .then(response => response.json())
-      .then(rndDate => this.setState({ rndDate: rndDate }));
+      .then(response => response.json())           
+      .then(data => {
+        this.setState({ date: data.rndDate })
+        this.getPhoto(data.rndDate);        
+      });
   };
 
   render() {
